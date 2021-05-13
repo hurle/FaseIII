@@ -41,8 +41,8 @@
                 <Image Margin="0,5,0,5" RenderOptions.BitmapScalingMode="HighQuality" Grid.Row="1" Source="Resources/Images/profile-user.png" HorizontalAlignment="Right"/>
                 <TextBox HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2" Width="200" Margin="5" Background="White" IsEnabled="True" Foreground="Black" Text="Usuario" GotFocus="TextBox_GotFocus" LostFocus="TextBox_GotFocus" x:Name="textbox_user"/>
                 <Image Margin="0,5,0,5" RenderOptions.BitmapScalingMode="HighQuality" Grid.Row="2" Source="Resources/Images/lock.png" HorizontalAlignment="Right"/>
-                <PasswordBox HorizontalAlignment="Left" Grid.Row="2" Grid.Column="2" Width="200" Margin="5"  Background="White" IsEnabled="True" Foreground="Black" x:Name="textbox_password"/>
-                <Button Grid.ColumnSpan="2" Grid.Row="3" Width="100" Margin="5" Content="Iniciar Sesion" Click="Button_Click"/>
+                <PasswordBox PasswordChar="*" Password="Password" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="2" Width="200" Margin="5"  Background="White" IsEnabled="True" Foreground="Black" x:Name="textbox_password" GotFocus="TextBox_GotFocus" LostFocus="TextBox_GotFocus"/>
+                <Button Grid.ColumnSpan="2" Grid.Row="3" Width="100" Margin="5" Content="Iniciar Sesion" x:Name="button_login" Click="button_login_Click"/>
                 <Button Grid.ColumnSpan="2" Grid.Row="4" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Transparent" Content="Ayuda."/>
             </Grid>
         </Grid>

@@ -38,17 +38,22 @@ namespace Fase_III_SERAJ
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            if ((sender as TextBox).Text == "Usuario" || (sender as TextBox).Text == "Contraseña")
+            try 
             {
-                (sender as TextBox).Text = "";
-            }
-            else if ((sender as TextBox).Text == "") 
-            {
-                if((sender as TextBox).Name == "textbox_user")
+                if ((sender as TextBox).Text == "Usuario")
+                    (sender as TextBox).Text = "";
+                else if ((sender as TextBox).Text == "")
                     (sender as TextBox).Text = "Usuario";
-                if ((sender as TextBox).Name == "textbox_password")
-                    (sender as TextBox).Text = "Password";
             }
+            catch
+            {
+                if ((sender as PasswordBox).Password == "Contraseña")
+                    (sender as PasswordBox).Password = "";
+                else if ((sender as PasswordBox).Password == "")
+                    (sender as PasswordBox).Password = "Password";
+            }
+            
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -56,9 +61,7 @@ namespace Fase_III_SERAJ
 
             if (!String.IsNullOrWhiteSpace(textbox_user.Text) && !String.IsNullOrWhiteSpace(textbox_password.Password))
             {
-                Frame_Content.Content = Page_wellcome;
-                Grid_Content.Visibility = Visibility.Visible;
-                Grid_Login.Visibility = Visibility.Collapsed;
+                
             }
             else 
             {
@@ -94,6 +97,27 @@ namespace Fase_III_SERAJ
                 return;
             Page_history.VerifyOrigin("Incomplete");
             Frame_Content.Content = Page_history;
+        }
+
+        private void button_login_Click(object sender, RoutedEventArgs e)
+        {
+            if (!Login(textbox_password.Password, textbox_user.Text))
+                MessageBox.Show("El usuario o la contraseña son incorrectos.");
+            else 
+            {
+                Frame_Content.Content = Page_wellcome;
+                Grid_Content.Visibility = Visibility.Visible;
+                Grid_Login.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        public bool Login(string password, string user) 
+        {
+            if (!String.IsNullOrWhiteSpace(password) && !String.IsNullOrWhiteSpace(user) &&
+                textbox_user.Text != "Usuario" && textbox_password.Password != "Password")
+                return true;
+            else
+                return false;
         }
     }
 }
