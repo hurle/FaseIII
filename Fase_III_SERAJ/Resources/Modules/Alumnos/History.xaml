@@ -1,0 +1,52 @@
+﻿<Page x:Class="Fase_III_SERAJ.Resources.Modules.Alumnos.History"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Fase_III_SERAJ.Resources.Modules.Alumnos"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="History">
+
+    <Grid Margin="10">
+        <Grid x:Name="GridBackground" Background="CadetBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+            <Label x:Name="LabelTitle" Content="Bitacora" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <TextBox Text="Nombre" FontSize="20" Margin="5" TextAlignment="Center" VerticalContentAlignment="Center" Width="220"/>
+                <TextBox Text="Edad" FontSize="20" Margin="5" TextAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox Text="Matricula" FontSize="20" Margin="5" TextAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox Text="Nivel de Estudios" FontSize="20" Margin="5" TextAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox Text="Programa" FontSize="20" Margin="5" TextAlignment="Center" VerticalContentAlignment="Center"/>
+                <Button FontSize="20" Content="Buscar" Width="100" Margin="10,0,10,0"/>
+            </StackPanel>
+            
+            <Grid Grid.Row="2" Margin="5">
+                <DataGrid x:Name="GridHistory" ItemsSource="{Binding Path=listStudent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="20" Foreground="Black" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nombre" Width="225" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="Edad" Width="60"  Binding="{Binding DateOfBird_ToGrid}"/>
+                        <DataGridTextColumn Header="Matricula" Width="95" Binding="{Binding IdSERAJ}"/>
+                        <DataGridTextColumn Header="Nivel de Estudios" Width="170" Binding="{Binding StudyDegree}"/>
+                        <DataGridTextColumn Header="Programa" Width="105" Binding="{Binding Program}"/>
+                        <DataGridTemplateColumn Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button>Test</Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        
+                    </DataGrid.Columns>
+
+                </DataGrid>
+            </Grid>
+        </Grid>
+        
+    </Grid>
+</Page>

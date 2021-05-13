@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Fase_III_SERAJ/1.0.0": {
+        "runtime": {
+          "Fase_III_SERAJ.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Fase_III_SERAJ/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
